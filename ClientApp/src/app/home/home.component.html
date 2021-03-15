@@ -1,0 +1,38 @@
+
+  
+
+
+<!---->
+
+  <div class="row mt-md-5 pt-md-5">
+    <div class="col-md-4"><app-student-form></app-student-form></div>
+    <div class="col-md-8 pl-md-5">    
+      <p *ngIf="!students"><em>Loading...</em></p>
+      
+      <table class='table table-striped' *ngIf="students">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Ad - Soyad</th>
+            <th>Kayıt Tarihi</th>
+            <th>İşlemler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students; let i = index">
+            <td><b>{{i + 1}}</b></td>
+            <td>{{ student.name }} {{student.surname}}</td>
+            <td>{{ student.dateOfReg | date:'dd/MM/yyyy'}}</td>
+            <td>
+              <button class="btn btn-sm btn-info mx-1">Güncelle</button>
+              <button class="btn btn-sm btn-danger mx-1">Sil</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+  </div>
+  
+  
+  </div>

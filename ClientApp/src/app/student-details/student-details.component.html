@@ -1,0 +1,52 @@
+<div class="container">
+<p><em>Eski sistemde öğrenci bilgileri</em></p>
+
+<p *ngIf="!students"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="students">
+  <thead>
+    <tr>
+      <th>Numara</th>
+      <th>Ad - Soyad</th>
+      <th>Sınıf</th>
+      <th>Email</th>
+      <th>Kayıt Tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.number }}</td>
+      <td>{{ student.name }} {{student.surname}}</td>
+      <td>{{ student.class }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.dateOfReg | date:'dd/MM/yyyy'}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="container mt-md-2 mb-md-2">
+  <p><em>Yeni sistemde öğrenci bilgileri</em></p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="nSsystem">
+  <thead>
+    <tr>
+      <th>Numara</th>
+      <th>Ad - Soyad</th>
+      <th>Sınıf</th>
+      <th>Email</th>
+      <th>Şifre</th>
+      <th>Kayıt Tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of nSsystem">
+      <td>{{ student.number }}</td>
+      <td>{{ student.name }} {{student.surname}}</td>
+      <td>{{ student.class }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.password }}</td>
+      <td>{{ student.dateOfReg | date:'dd/MM/yyyy'}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

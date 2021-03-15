@@ -1,0 +1,31 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+  
+  <div class="container text-center"><h2>Yeni Kişi Oluştur</h2></div>
+
+  <input type="hidden" name="id" value="service.formData.id"/>
+  <div class="form-group">
+    
+    <input class="form-control form-control-lg" placeholder="Ad" 
+    name="name" #name="ngModel"[(ngModel)]="service.formData.name"
+    required [class.invalid]="name.invalid && name.touched" minlength="2" autocomplete="off"> 
+  </div>
+
+  <div class="form-group">
+    
+    <input class="form-control form-control-lg" placeholder="Soyad" 
+    name="surname" #surname="ngModel" [(ngModel)]="service.formData.surname"
+    required [class.invalid]="surname.invalid && surname.touched" minlength="2" autocomplete="off">
+  </div>
+
+    <div class="form-group">
+    
+    <input class="form-control form-control-lg" placeholder="Kayıt yılı" 
+    name="dateOfReg" #dateOfReg="ngModel" [(ngModel)]="service.formData.dateOfReg"
+    required [class.invalid]="dateOfReg.invalid && dateOfReg.touched" minlength="4" maxlength="4" autocomplete="off">
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Kaydet</button>
+  </div>
+
+</form>
